@@ -17,4 +17,5 @@ void parallel_matrix_multiplication(const int* A, const int A_rows,
                                     const int A_columns, const int* B,
                                     const int B_rows, int* res);
 
+
 #endif  // TASKS_TASK_2_RYABKOV_V_VERTICAL_STRIP_STRIP_VERTICAL_SCHEME_H_
