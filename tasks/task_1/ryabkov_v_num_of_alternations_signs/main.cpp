@@ -2,7 +2,6 @@
 
 
 #include <gtest/gtest.h>
-#include <gtest-mpi-listener.hpp>
 #include "task_1/ryabkov_v_num_of_alternations_signs/alter_sign.h"
 
 
