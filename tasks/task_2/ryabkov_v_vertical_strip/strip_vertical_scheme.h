@@ -7,6 +7,7 @@
 #include <random>
 #include <vector>
 #include <algorithm>
+#include <gtest/gtest.h>
 
 int* init_empty_matrix(int rows);
 int* get_random_matrix(int rows, int columns);

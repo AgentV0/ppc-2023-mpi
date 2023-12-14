@@ -1,7 +1,7 @@
 //  Copyright 2023 Ryabkov Vladislav
 
-#include <gtest/gtest.h>
 #include "./strip_vertical_scheme.h"
+#include <gtest-mpi-listener.hpp>
 
 TEST(Ribbon_Vertical_MPI, A_5x5_B_5) {
     int rank;
