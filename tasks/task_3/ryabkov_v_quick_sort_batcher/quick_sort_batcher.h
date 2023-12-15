@@ -4,6 +4,7 @@
 #define TASKS_TASK_3_RYABKOV_V_QUICK_SORT_BATCHER_QUICK_SORT_BATCHER_H_
 
 #include <mpi.h>
+#include <utility>
 #include <vector>
 #include <random>
 
