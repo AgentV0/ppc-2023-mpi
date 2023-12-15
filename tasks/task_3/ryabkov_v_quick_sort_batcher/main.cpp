@@ -2,6 +2,7 @@
 
 
 #include <gtest/gtest.h>
+#include <gtest-mpi-listener.hpp>
 #include "task_3/ryabkov_v_quick_sort_batcher/quick_sort_batcher.h"
 
 void SortTEST(int vec_size) {
