@@ -2,7 +2,6 @@
 
 
 #include <gtest/gtest.h>
-#include <gtest-mpi-listener.hpp>
 #include "task_3/ryabkov_v_quick_sort_batcher/quick_sort_batcher.h"
 
 void SortTEST(int vec_size) {
@@ -43,15 +42,18 @@ TEST(Quick_Sort_Batcher, Test5) {
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
-    MPI_Init(&argc, &argv);
-
-    ::testing::AddGlobalTestEnvironment(new GTestMPIListener::MPIEnvironment);
     ::testing::TestEventListeners& listeners =
         ::testing::UnitTest::GetInstance()->listeners();
 
-    listeners.Release(listeners.default_result_printer());
-    listeners.Release(listeners.default_xml_generator());
+    if (MPI_Init(&argc, &argv) != MPI_SUCCESS) MPI_Abort(MPI_COMM_WORLD, -1);
 
-    listeners.Append(new GTestMPIListener::MPIMinimalistPrinter);
-    return RUN_ALL_TESTS();
+    int rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
+    if (rank != 0) {
+        delete listeners.Release(listeners.default_result_printer());
+    }
+    int exec = RUN_ALL_TESTS();
+    MPI_Finalize();
+    return exec;
 }
